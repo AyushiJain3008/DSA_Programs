@@ -7,12 +7,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Install GCC
-      run: sudo apt-get install -y gcc
-    - name: Compile C Code
-      run: gcc -o output main.c
-    - name: Add Execute Permissions
-      run: chmod +x output
-    - name: Run C Program
-      run: ./output
+    - uses: actions/checkout@v3
+    - name: Install GCC and gdb
+      run: sudo apt-get install -y gcc gdb
+    - name: Compile C Code with Debugging Symbols
+      run: gcc -g -o output main.c
+    - name: Run C Program with gdb
+      run: |
+        gdb -batch -ex "run" -ex "bt" ./output
