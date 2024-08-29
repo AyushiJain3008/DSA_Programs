@@ -44,7 +44,7 @@ int main(void)
     bool a;
     printf("Enter size\n");
     scanf("%d",&n);
-    int stack[n];
+    int *stack=(int *)malloc(*sizeof(int));
     printf("Press:\n0.To Exit\n1.To Push\n2.To Pop\n3.To Check stack is Empty\n4.To Check size of stack\n5.To Print\n");
     printf("Enter the choice\n");
     scanf("%d",&ch);
